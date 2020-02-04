@@ -1,16 +1,18 @@
 // index.js
 
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 import routes from './routes/index';
-const Inert = require('inert');
-const Vision = require('vision');
+const Inert = require('@hapi/inert');
+const Vision = require('@hapi/vision');
 const HapiSwagger = require('hapi-swagger');
 
 const server = Hapi.server({
-    port: 3001,
-    host: 'localhost',
+    port: process.env.PORT || 3001,
+    host: '0.0.0.0',
     routes: { cors: true }
 });
+console.log(process.env.DB_HOST);
+console.log(process.env.DB_PORT);
 
 const init = async () => {
 

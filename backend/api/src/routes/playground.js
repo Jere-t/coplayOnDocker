@@ -2,7 +2,7 @@
 
 //routes for table playground
 import { getAllPlaygrounds, getPlaygroundById, getAllPlaygroundsByIdClub, getAllPlaygroundsByIdClubAndIdSport } from '../handlers/playground';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const playgroundSchema = require('../schemas/playground/playground');
 
 const playground = [
@@ -53,9 +53,9 @@ const playground = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED
@@ -109,9 +109,9 @@ const playground = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -165,10 +165,10 @@ const playground = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idClub: Joi.number().integer().required(),
                   idSport: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],

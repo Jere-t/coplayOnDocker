@@ -2,7 +2,7 @@
 
 //routes for table user
 import { getAllUsers, getUserById, getUserByUsername, getUserByUsernameAndIdClub,checkLogin, addUser, updateUser, deleteUser } from '../handlers/user';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const userSchema = require('../schemas/user/user');
 const userLoginSchema = require('../schemas/user/userLogin');
 const addUserSchema = require('../schemas/user/add');
@@ -57,9 +57,9 @@ const user = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -113,9 +113,9 @@ const user = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   username: Joi.string().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -344,9 +344,9 @@ const user = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idUser: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

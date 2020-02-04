@@ -1,6 +1,6 @@
 // schemas/sport/sport.js
 
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 
 module.exports = Joi.object().keys(
     {

@@ -3,9 +3,8 @@
 //routes for table game
 import { getAllGames, getGameById, getAllGamesByAdvanceSearch, getAllConnectGamesByAdvanceSearch, addGame, updateGame, deleteGame } from '../handlers/game';
 //Joi with date extension
-const BaseJoi = require('joi');
-const Extension = require('joi-date-extensions');
-const Joi = BaseJoi.extend(Extension);
+const Joi = require('@hapi/joi')
+    .extend(require('@hapi/joi-date'));
 const gameSchema = require('../schemas/game/game');
 const addGameSchema = require('../schemas/game/add');
 const updateGameSchema = require('../schemas/game/update');
@@ -58,9 +57,9 @@ const game = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED
@@ -114,10 +113,10 @@ const game = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   date: Joi.date().format('YYYY-MM-DD'),
                   idClub: Joi.number().integer()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -171,11 +170,11 @@ const game = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   date: Joi.date().format('YYYY-MM-DD'),
                   idClub: Joi.number().integer(),
                   idSport: Joi.number().integer()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -346,9 +345,9 @@ const game = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idGame: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

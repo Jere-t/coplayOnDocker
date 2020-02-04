@@ -1,9 +1,7 @@
 // schemas/user/update.js
 
 //Joi with date extension
-const BaseJoi = require('joi');
-const Extension = require('joi-date-extensions');
-const Joi = BaseJoi.extend(Extension);
+const Joi = require('@hapi/joi').extend(require('@hapi/joi-date'));
 
 module.exports = Joi.object().keys(
     {
@@ -12,7 +10,7 @@ module.exports = Joi.object().keys(
         passwordHash: Joi.string().max(255).min(2).required(),  //--> PATCH ???
         firstname: Joi.string().max(255).min(2).required(),
         lastname: Joi.string().max(255).min(2).required(),
-        email: Joi.string().email({ minDomainAtoms: 2 }).max(255).min(2).required(),
+        email: Joi.string().email({ minDomainSegments: 2 }).max(255).min(2).required(),
         userBirthday: Joi.date(),
 
     });

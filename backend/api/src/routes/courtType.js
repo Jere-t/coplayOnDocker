@@ -2,7 +2,7 @@
 
 //routes for table courtType
 import { getAllCourtTypes, getCourtTypeById } from '../handlers/courtType';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const courtTypeSchema = require('../schemas/courtType/courtType');
 
 const courtType = [
@@ -53,9 +53,9 @@ const courtType = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

@@ -5,7 +5,7 @@ const fs = require ('fs');
 
 const dbConfig = require('./DB_CONFIG');
 
-const scripts = ['../database/scripts/00-DropTables.sql', "../database/scripts/01-CreateTables.sql", "../database/scripts/02-InsertData.sql"];
+const scripts = ['src/db/scripts/00-DropTables.sql', "src/db/scripts/01-CreateTables.sql", "src/db/scripts/02-InsertData.sql"];
 
 // Reads db scripts and regroup in a variable
 function getQueryFromFile() {

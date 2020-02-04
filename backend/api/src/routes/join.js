@@ -2,7 +2,7 @@
 
 //routes for table join
 import { getAllJoins, getAllJoinsByIdUser, getAllJoinsByIdGame, addJoin, updateJoin, deleteJoin } from '../handlers/join';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const joinSchema = require('../schemas/join/join');
 const addJoinSchema = require('../schemas/join/add');
 const updateJoinSchema = require('../schemas/join/update');
@@ -57,9 +57,9 @@ const join = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -113,9 +113,9 @@ const join = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -286,10 +286,10 @@ const join = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idUser: Joi.number().integer().required(),
                   idGame: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

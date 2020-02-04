@@ -2,7 +2,7 @@
 
 //routes for table isMember
 import { getAllIsMembers, getAllIsMembersByIdUser, getAllIsMembersByIdClub, getAllIsMembersByIdUserIdClub, addIsMember, updateIsMember, deleteIsMember} from '../handlers/isMember';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const isMemberSchema = require('../schemas/isMember/isMember');
 const addIsMemberSchema = require('../schemas/isMember/add');
 const updateIsMemberSchema = require('../schemas/isMember/update');
@@ -55,9 +55,9 @@ const isMember = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -111,9 +111,9 @@ const isMember = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -167,10 +167,10 @@ const isMember = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idUser: Joi.number().integer().required(),
                   idClub: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],
@@ -341,10 +341,10 @@ const isMember = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idUser: Joi.number().integer().required(),
                   idClub: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

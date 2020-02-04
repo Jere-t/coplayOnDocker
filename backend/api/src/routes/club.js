@@ -2,7 +2,7 @@
 
 //routes for table club
 import { getAllClubs, getClubById } from '../handlers/club';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const clubSchema = require('../schemas/club/club');
 
 const club = [
@@ -53,9 +53,9 @@ const club = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

@@ -2,7 +2,7 @@
 
 //routes for table country
 import { getAllCountries, getCountryById } from '../handlers/country';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const countrySchema = require('../schemas/country/country');
 
 const country = [
@@ -53,9 +53,9 @@ const country = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED

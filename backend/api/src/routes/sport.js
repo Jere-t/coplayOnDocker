@@ -2,7 +2,7 @@
 
 //routes for table sport
 import { getAllSports, getSportById, getSportsOfAClub } from '../handlers/sport';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const sportSchema = require('../schemas/sport/sport');
 
 const sport = [
@@ -53,9 +53,9 @@ const sport = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED
@@ -109,9 +109,9 @@ const sport = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   idClub: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],

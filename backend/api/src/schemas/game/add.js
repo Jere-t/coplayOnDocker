@@ -1,9 +1,9 @@
 // schemas/game/game.js
 
 //Joi with date extension
-const BaseJoi = require('joi');
-const Extension = require('joi-date-extensions');
-const Joi = BaseJoi.extend(Extension);
+const Joi = require('@hapi/joi').extend(require('@hapi/joi-date'));
+
+
 
 module.exports = Joi.object().keys(
     {

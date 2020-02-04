@@ -14,5 +14,5 @@ thumbs.db
 # Apple macOS specific #
 .DS_Store
 
-#env variable 
+#env variable
 .env

@@ -2,7 +2,7 @@
 
 //routes for table city
 import { getAllCities, getCityById } from '../handlers/city';
-const Joi = require('joi');
+const Joi = require('@hapi/joi');
 const citySchema = require('../schemas/city/city');
 
 const city = [
@@ -53,9 +53,9 @@ const city = [
       options: {
           // JOI validation for the request
           validate: {
-              params: {
+              params: Joi.object({
                   id: Joi.number().integer().required()
-              }
+              })
           },
           // API Documentation Generation
           tags: ['api'],  // REQUIRED
