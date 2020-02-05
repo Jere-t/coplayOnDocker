@@ -1,6 +1,22 @@
 # CoPlay
 Application CoPlay with the DB, API and Frontend
 
+## Getting started with Docker
+run these cmd on these path:
+coplayOnDocker/backend/api/
+```
+docker build -t jeret/coplay-app .
+```
+coplayOnDocker/frontend/coplay/
+```
+docker build -t jeret/coplay-api .
+```
+coplayOnDocker/
+```
+docker-compose up -d
+```
+The first time, uncomment the line "command: npm run db:init" then run the last command. Finally, comment the line again and the app is ready.
+
 ## Getting started
 These instructions will guide you to get a copy of this project and running on your local machine.
 ### Prerequisites
