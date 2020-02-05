@@ -15,7 +15,7 @@ services:
    networks:
      - app-network
    environment:
-    REACT_APP_API_ROOT: coplayapi
+    REACT_APP_API_ROOT: localhost
     REACT_APP_API_PORT: 3001
 
  coplayapi:
