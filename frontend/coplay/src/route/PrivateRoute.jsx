@@ -9,7 +9,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     <Route
       {...rest}
       render={ props =>
-        rest.isLog?(
+        rest.isLog == false?(
           <Component {...props} />
         ):(
           <Redirect
