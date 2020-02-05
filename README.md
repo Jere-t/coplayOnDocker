@@ -3,6 +3,7 @@ Application CoPlay with the DB, API and Frontend
 
 ## Getting started with Docker
 run these cmd on these path:
+
 coplayOnDocker/backend/api/
 ```
 docker build -t jeret/coplay-app .
