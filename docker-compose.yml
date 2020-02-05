@@ -1,5 +1,21 @@
 version: '3'
 services:
+
+ coplayapp:
+   depends_on:
+     - coplayapi
+   build:
+      context: frontend/coplay
+      dockerfile: Dockerfile
+   image: jeret/coplay-app
+   container_name: coplay-app
+   restart: unless-stopped
+   ports:
+       - "80:3000"
+   environment:
+    API_ROOT: coplayapi
+    API_PORT: 3001
+
  coplayapi:
    depends_on:
      - db
@@ -12,7 +28,6 @@ services:
    env_file: .env
    ports:
        - "3001:3001"
-   restart: always
    volumes:
       - .:/home/node/app
       - node_modules:/home/node/app/node_modules

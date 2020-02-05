@@ -12,7 +12,7 @@ const server = Hapi.server({
     routes: { cors: true }
 });
 console.log(process.env.DB_HOST);
-console.log(process.env.DB_PORT);
+
 
 const init = async () => {
 

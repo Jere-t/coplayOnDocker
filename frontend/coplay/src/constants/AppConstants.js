@@ -1,7 +1,7 @@
 // constants/AppConstants.js
-
+console.log(process.env.API_ROOT);
 // link api
-const apiRoot = "http://localhost:3001/api";
+const apiRoot = process.env.API_ROOT+":"+process.env.API_PORT+"/api";
 
 export default apiRoot;
 

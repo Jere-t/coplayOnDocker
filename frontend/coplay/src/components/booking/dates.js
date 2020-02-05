@@ -1,7 +1,7 @@
 // I used the file from : https://github.com/intljusticemission/react-big-calendar/blob/master/src/utils/dates.js
 
 /* eslint no-fallthrough: off */
-import dateMath from 'date-arithmetic'
+import * as  dateMath from 'date-arithmetic'
 
 const MILLI = {
   seconds: 1000,
